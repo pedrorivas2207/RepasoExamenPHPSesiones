@@ -1,0 +1,57 @@
+DOCKER PARA REPASO DE EXAMEN PHP
+
+ARCHIVOS
+- Dockerfile: crea el entorno con PHP y Apache.
+- docker-compose.yml: levanta el servidor y conecta la carpeta del proyecto.
+- .dockerignore: evita copiar archivos innecesarios al crear la imagen.
+
+DÓNDE COLOCARLOS
+Copia estos tres archivos (Dockerfile, docker-compose.yml y .dockerignore)
+en la carpeta principal "Repaso de examen PHP", al mismo nivel que las
+carpetas de los cinco ejercicios.
+
+Ejemplo:
+Repaso de examen PHP/
+  Dockerfile
+  docker-compose.yml
+  .dockerignore
+  Ejercicio 1/
+    ejercicio1_media.php
+  Ejercicio 2/
+    ejercicio2_estadisticas.php
+  ...
+
+CÓMO ARRANCAR
+1. Abre la carpeta principal "Repaso de examen PHP" en VS Code.
+2. Abre el terminal integrado.
+3. Ejecuta:
+   docker compose up -d --build
+4. Abre en el navegador:
+   http://localhost:8080/
+
+Para entrar en cada ejercicio, utiliza la ruta de su carpeta y archivo.
+Por ejemplo, si la carpeta se llama "Ejercicio 1":
+   http://localhost:8080/Ejercicio%201/ejercicio1_media.php
+
+Si has llamado a las carpetas "Ejercicio1", "Ejercicio2", etc., las rutas
+serán, por ejemplo:
+   http://localhost:8080/Ejercicio1/ejercicio1_media.php
+
+CÓMO PARAR EL SERVIDOR
+   docker compose down
+
+CÓMO VOLVER A ARRANCARLO
+   docker compose up -d
+
+VER LOS REGISTROS SI HAY ALGÚN ERROR
+   docker compose logs
+
+IMPORTANTE
+- Necesitas tener Docker Desktop instalado y abierto.
+- Ejecuta los comandos desde la carpeta donde está docker-compose.yml.
+- No abras cada ejercicio como un contenedor distinto: los cinco comparten
+  el mismo servidor PHP/Apache.
+- Para Git, añade también Dockerfile, docker-compose.yml y .dockerignore:
+   git add .
+   git commit -m "Añado configuración Docker"
+   git push
